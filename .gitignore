@@ -1,0 +1,22 @@
+# dependencies
+zuni/node_modules
+zuni/.pnp
+zuni/.pnp.js
+
+# testing
+zuni/coverage
+
+# production
+zuni/build
+
+# misc
+.vscode
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+zuni/npm-debug.log*
+zuni/yarn-debug.log*
+zuni/yarn-error.log*

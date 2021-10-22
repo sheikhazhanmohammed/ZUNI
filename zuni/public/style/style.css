@@ -1,0 +1,183 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+}
+
+body {
+  background-color: #212121;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  height: 120px;
+  padding: 30px 20px;
+  font-family: "Goldman", cursive;
+  background-color: #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header h1 {
+  position: relative;
+  top: 30px;
+  left: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  text-align: center;
+  color: #dddddd;
+  letter-spacing: 0.3rem;
+  padding: 10px 8px;
+  border: 2px solid white;
+}
+
+header h1::after {
+  content: '';
+  padding: 0 13px;
+  background-color: #e40072;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+header ul.nav-items {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header ul.nav-items .link-text {
+  text-decoration: none;
+  color: white;
+}
+
+header ul.nav-items .link-text li {
+  margin-left: 20px;
+}
+
+header ul.nav-items .link-text:nth-child(4) li, header ul.nav-items .link-text:nth-child(5) li {
+  background-color: #e40072;
+  padding: 6px;
+}
+
+footer {
+  height: 50px;
+  color: #dddddd;
+  background-color: #000000;
+  font-family: "Goldman", cursive;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0;
+}
+
+main {
+  height: calc(100vh - 170px);
+  padding-top: 70px;
+}
+
+main#login, main#register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main#login form, main#register form {
+  max-width: 700px;
+  margin: 50px;
+  background-color: #303030;
+  padding: 30px;
+  color: #dddddd;
+  font-family: sans-serif;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main#login form h1, main#register form h1 {
+  font-family: sans-serif;
+  color: #dddddd;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main#login form input, main#login form button, main#register form input, main#register form button {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+main#login form .link-text, main#register form .link-text {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #dddddd;
+  text-align: center;
+}
+
+main#login form .link-text:hover, main#register form .link-text:hover {
+  color: #e40072;
+}
+/*# sourceMappingURL=style.css.map */

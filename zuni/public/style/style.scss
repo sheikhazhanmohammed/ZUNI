@@ -1,0 +1,139 @@
+// global styles
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+}
+
+$accent-color: #e40072;
+$navs-bg: #000000;
+$body-bg-l1: #212121;
+$body-bg-l2: #303030;
+$body-bg-l3: #424242;
+$font-main: sans-serif;
+$font-color: #dddddd;
+$font-display: 'Goldman', cursive;
+
+
+body{
+	background-color: $body-bg-l1;
+	&::-webkit-scrollbar{
+		display: none;
+	}
+}
+
+// Global Components
+// navigation menu top
+header{
+	height: 120px;
+	padding: 30px 20px;
+	font-family: $font-display;
+	background-color: $navs-bg;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	h1{
+		position: relative;
+		top: 30px;
+		left: 0;
+		transform: rotate(180deg);
+		writing-mode: vertical-lr;
+		text-align: center;
+		color: $font-color;
+		letter-spacing: 0.3rem;
+		padding: 10px 8px;
+		border: 2px solid white;
+		&::after{
+			content: '';
+			padding: 0 13px;
+			background-color: $accent-color;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 100%;
+			z-index: -1;
+		}
+	}
+	ul.nav-items{
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		.link-text{
+			text-decoration: none;
+			color: white;
+			li{
+				margin-left: 20px;
+			}
+			&:nth-child(4) li, &:nth-child(5) li{
+				background-color: $accent-color;
+				padding: 6px;
+			}
+		}
+	}
+}
+
+// footer bottom
+footer{
+	height: 50px;
+	color: $font-color;
+	background-color: $navs-bg;
+	font-family: $font-display;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 0;
+}
+
+main{
+	height: calc(100vh - 170px);
+	padding-top: 70px;
+}
+
+// Route Components
+// Login/Signup
+main#login, main#register{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	form{
+		max-width: 700px;
+		margin: 50px;
+		background-color: $body-bg-l2;
+		padding: 30px;
+		color: $font-color;
+		font-family: $font-main;
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		h1{
+			font-family: $font-main;
+			color: $font-color;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		input, button{
+			font-size: 1.2rem;
+			padding: 5px 10px;
+			margin-top: 10px;
+			border-radius: 3px;
+		}
+		.link-text{
+			margin-top: 10px;
+			text-decoration: none;
+			color: $font-color;
+			text-align: center;
+			&:hover{
+				color: $accent-color;
+			}
+		}
+	}
+}
