@@ -14,7 +14,7 @@ $body-bg-l2: #303030;
 $body-bg-l3: #424242;
 $font-main: sans-serif;
 $font-color: #dddddd;
-$font-display: 'Goldman', cursive;
+$font-display: 'Goldman', 'sans-serif', cursive;
 
 
 body{
@@ -35,17 +35,24 @@ header{
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	@media(max-width: 420px){
+		padding: 10px
+	}
 	h1{
 		position: relative;
 		top: 30px;
 		left: 0;
 		transform: rotate(180deg);
 		writing-mode: vertical-lr;
+		background-color: black;
 		text-align: center;
 		color: $font-color;
 		letter-spacing: 0.3rem;
 		padding: 10px 8px;
 		border: 2px solid white;
+		@media(max-width: 420px){
+			padding: 8px 5px;
+		}
 		&::after{
 			content: '';
 			padding: 0 13px;
@@ -68,6 +75,9 @@ header{
 			color: white;
 			li{
 				margin-left: 20px;
+				@media(max-width: 420px){
+					margin-left: 12px;
+				}
 			}
 			&:nth-child(4) li, &:nth-child(5) li{
 				background-color: $accent-color;
@@ -89,51 +99,191 @@ footer{
 	flex-direction: row;
 	justify-content: center;
 	margin-bottom: 0;
+	margin-top: 30px;
 }
 
 main{
-	height: calc(100vh - 170px);
+	min-height: calc(100vh - 200px);
 	padding-top: 70px;
 }
 
 // Route Components
 // Login/Signup
-main#login, main#register{
+main#auth{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	h1{
+		font-family: $font-main;
+		color: $font-color;
+		text-align: center;
+	}
 	form{
 		max-width: 700px;
 		margin: 50px;
 		background-color: $body-bg-l2;
-		padding: 30px;
+		padding: 10px 30px 30px 30px;
 		color: $font-color;
 		font-family: $font-main;
 		border-radius: 8px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		h1{
-			font-family: $font-main;
-			color: $font-color;
-			text-align: center;
-			margin-bottom: 20px;
-		}
 		input, button{
 			font-size: 1.2rem;
-			padding: 5px 10px;
-			margin-top: 10px;
+			padding: 12px 15px;
+			margin-top: 15px;
 			border-radius: 3px;
 		}
-		.link-text{
-			margin-top: 10px;
-			text-decoration: none;
-			color: $font-color;
-			text-align: center;
-			&:hover{
+		div.upper{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			margin: 10px 0;
+			font-size: 1.3rem;
+			cursor: pointer;
+			width: 100%;
+		
+			div{
+				width: 100%;
+				padding: 10px;
+				text-align: center;
+				border-radius: 5px;
+				background-color: transparent;
+			}
+			div.login, div.register{
+				background-color: $accent-color;
+				transition-duration: 250ms;
+			}
+		}
+	}
+}
+
+// Authentication camera
+main#auth-camera{
+    div.camera{
+        height: 100%;
+        width: 100%;
+        background-color:white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px 0px black;
+        #videoElement{
+            height: 100%;
+            width: 100%;
+            background-color: #212121;
+            transform: scaleX(-1);
+        }
+    }
+    div.controls{
+        position: absolute;
+        top: 45%;
+        right: 25px;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        @media(max-width:780px){
+            top: 35px;
+            right: 35px;
+        }
+        @media(max-width:500px){
+            top: 15px;
+            right: 15px;
+        }
+    }
+    button#stop, button#capture{
+        height: 52px;
+        width: 52px;
+        padding: 7px;
+        border-radius: 50%;
+        background-color: $accent-color;
+        cursor: pointer;
+        z-index: 5;
+        margin-bottom: 10px;
+        @media(max-width:780px){
+            height: 45px;
+            width: 45px;
+        }
+        @media(max-width:500px){
+            height: 40px;
+            width: 40px;
+        }
+        i.btn{ 
+            font-size: 2rem; 
+            @media(max-width:780px){ font-size: 1.7rem; }
+            @media(max-width:500px){ font-size: 1.55rem; }
+        }
+    }
+    // h2#res-prediction{
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     color: white;
+    //     text-align: center;
+    // }
+}
+
+// Loading screen
+main#loader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1, h2{
+        color: $accent-color;
+		font-family: $font-main;
+		margin-bottom: 20px;
+    }
+	h1 span::after{
+		content: '';
+		animation: addDots 2s alternate infinite;
+	}
+    div.loader-wheel{
+        margin-top: 50px;
+        z-index: 100;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid $accent-color;
+        animation: spin 2s linear infinite;
+    }
+}
+// animations used
+@keyframes addDots {
+	0%{ content: '' }
+	25%{ content: '.' }
+	50%{ content: '. .' }
+	75%{ content: '. . .' }
+	100%{ content: '. . . .' }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+main#main{
+	margin: 0 50px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 50px;
+	div{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		h1{
+			color: white;
+			font-family: $font-display;
+			span{
+				font-size: 2.5rem;
 				color: $accent-color;
 			}
 		}
 	}
+	
 }

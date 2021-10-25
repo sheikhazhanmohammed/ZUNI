@@ -1,11 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Nav from './header/Nav';
 import Footer from './footer/Footer'
-import Main from './main/Main';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './main/Home';
+import Main from './main/Main'
 import About from './about/About'
-import Login from './main/Login'
-import Register from './main/Register'
 import Docs from './docs/Docs'
 
 function App() {
@@ -13,11 +13,10 @@ function App() {
 		<>
 			<Router>
 				<Nav/>
-				<Route path='/' exact component={Main}/>
+				<Route path='/' exact component={Home}/>
 				<Route path='/docs' component={Docs}/>
 				<Route path='/about' component={About}/>
-				<Route path='/login' component={Login}/>
-				<Route path='/register' component={Register}/> 
+				<Route path='/auth' component={Main}/>
 				<Footer/>
 			</Router>
 		</>

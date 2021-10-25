@@ -1,20 +1,48 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
+import Webcam from "react-webcam";
 
-function AuthCamera() {
-  return (
-    <main id="auth-camera">
-      <div class="camera">
-        <video autoplay="true" id="videoElement"></video>
-        <canvas style={{display: 'none'}} id="canvas" width="320" height="240"></canvas>
-      </div>
-      {/* <p style={{display: 'none'}} id="user">{{ user }}</p> */}
-      <div class="controls">
-        <button type="submit" id="capture"><i class="btn fas fa-camera" onclick=""></i></button>
-        <button onclick="(e) => e.preventDefault()" id="stop"><i class="btn fas fa-video-slash"></i></button>
-      </div>
-      <h2 id="res-prediction"></h2>
-    </main>
-  )
-}
 
-export default AuthCamera
+function WebcamCapture(props){
+    const webcamRef = useRef(null);
+    const [cameraOn, setCameraOn] = useState(false)
+
+    const click = new Audio(process.env.PUBLIC_URL + '/assets/sound.mp3')
+
+    const capture = () => {
+        // props.checkCameraOn(cameraOn)
+        if(cameraOn){
+            click.play()
+            const imageSrc = webcamRef.current.getScreenshot();
+            props.imageData(imageSrc)
+        }
+        else{
+            alert('Please turn on the camera first')
+        }
+    };
+
+    const turnOnCamera = () => { setCameraOn(!cameraOn) }
+
+    // TODO Camera should open as a popup after the login screen 
+
+    return (
+        <main id="auth-camera">
+            <div className="camera">
+                {cameraOn ? 
+                (<Webcam id="videoElement" audio={false} ref={webcamRef} screenshotFormat="image/jpeg" mirrored={true} />) 
+                : <div id="videoElement"></div>
+                }
+                
+            </div>
+            <div className="controls">
+                <button id="capture" onClick={capture}>
+                    <i className="btn fas fa-camera"></i>
+                </button>
+                <button id="stop" onClick={turnOnCamera}>
+                    <i className="btn fas fa-video-slash"></i>
+                </button>
+            </div>
+        </main>
+    );
+};
+
+export default WebcamCapture

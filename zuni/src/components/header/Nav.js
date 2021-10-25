@@ -9,8 +9,7 @@ function Nav() {
 				<Link className='link-text' to='/' exact><li>HOME</li></Link>
 				<Link className='link-text' to='/docs'><li>DOCS</li></Link>
 				<Link className='link-text' to='/about'><li>ABOUT</li></Link>
-				<Link className='link-text' to='/login' exact><li>LOGIN</li></Link>
-				<Link className='link-text' to='/register' exact><li>REGISTER</li></Link>
+				<Link className='link-text' to='/auth' exact><li>AUTH</li></Link>
 			</ul>
 		</header>
 	)
