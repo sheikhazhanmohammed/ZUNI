@@ -13,7 +13,7 @@ function WebcamCapture(props){
         if(cameraOn){
             click.play()
             const imageSrc = webcamRef.current.getScreenshot();
-            props.imageData(imageSrc)
+            props.imageData(cameraOn, imageSrc)
         }
         else{
             alert('Please turn on the camera first')

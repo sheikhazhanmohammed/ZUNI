@@ -7,7 +7,7 @@ function Nav() {
 			<h1>ZUNI</h1>
 			<ul className="nav-items">
 				<Link className='link-text' to='/' exact><li>HOME</li></Link>
-				<Link className='link-text' to='/docs'><li>DOCS</li></Link>
+				<Link className='link-text' to='/demo'><li>DEMO</li></Link>
 				<Link className='link-text' to='/about'><li>ABOUT</li></Link>
 				<Link className='link-text' to='/auth' exact><li>AUTH</li></Link>
 			</ul>
