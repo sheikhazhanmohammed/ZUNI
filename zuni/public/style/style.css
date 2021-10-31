@@ -45,6 +45,7 @@ header h1 {
   position: relative;
   top: 30px;
   left: 0;
+  z-index: 100;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-writing-mode: vertical-lr;
@@ -132,12 +133,12 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 0;
-  margin-top: 30px;
 }
 
 main {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 170px);
   padding-top: 70px;
+  padding-bottom: 30px;
 }
 
 main#auth {
@@ -222,18 +223,45 @@ main#auth form div.upper div.login, main#auth form div.upper div.register {
           transition-duration: 250ms;
 }
 
+main#auth-camera {
+  position: relative;
+  top: 0;
+  bottom: -30px;
+  width: 98%;
+  margin: 0 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
 main#auth-camera div.camera {
   height: 100%;
+  max-width: 780px;
   width: 100%;
-  background-color: white;
-  border-radius: 10px;
+  background-color: #212121;
+  border-radius: 5px;
+  margin-bottom: -4px;
   -webkit-box-shadow: 0px 0px 15px 0px black;
           box-shadow: 0px 0px 15px 0px black;
+  padding: 0;
 }
 
 main#auth-camera div.camera #videoElement {
+  border-radius: 5px;
   height: 100%;
   width: 100%;
+  padding: 0;
   background-color: #212121;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
@@ -328,6 +356,7 @@ main#loader h1, main#loader h2 {
   color: #e40072;
   font-family: sans-serif;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 main#loader h1 span::after {
@@ -511,5 +540,38 @@ main#not-found h1, main#not-found h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #dddddd;
+}
+
+main.result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 10%;
+}
+
+main.result h1, main.result h2.retry {
+  font-family: sans-serif;
+  color: #dddddd;
+  text-align: center;
+  line-height: 4rem;
+}
+
+main.result h2.retry {
+  cursor: pointer;
+  color: blueviolet;
+}
+
+main.result h2.retry:hover {
+  color: red;
 }
 /*# sourceMappingURL=style.css.map */

@@ -25,7 +25,7 @@ class User(db.Model):
 @app.route('/register', methods=['POST'])
 @cross_origin()
 def signup():
-  username = request.get_json(force=True)
+  username = request.json['username']
   user = User.query.filter_by(username=username).first()
   if user == None:
     return jsonify({ 'user': username })
@@ -36,7 +36,7 @@ def signup():
 @app.route('/login', methods=['POST'])
 @cross_origin()
 def login():
-  username = request.get_json(force=True)
+  username = request.json['username']
   user = User.query.filter_by(username=username).first()
   if user == None:
     return jsonify({ 'user': '' })
@@ -44,14 +44,15 @@ def login():
     return jsonify({ 'user': username })
   
 
-# @app.route('/test-image', methods=['POST'])
-# def checkImage():
-#   filename = f'{uuid.uuid4().hex}.jpeg'
-#   message = request.get_json(force=True)
-#   encoded = message['image']
-#   decoded = b64decode(encoded)
-#   image = Image.open(io.BytesIO(decoded)) 
-
+@app.route('/test-image', methods=['POST'])
+def checkImage():
+  # just for checking purpose
+  filename = f'{uuid.uuid4().hex}.jpeg'
+  message = request.get_json(force=True)
+  # encoded = message
+  # decoded = b64decode(encoded)
+  # image = Image.open(io.BytesIO(decoded)) 
+  return jsonify({'verified': False, 'filename': filename})
 #   user = message['username']
 #   foundUser = User.query.filter_by(username=user).first()
 #   # if user is not fount, add to the database directory
@@ -87,4 +88,4 @@ def login():
 
 
 if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=8000, debug=True)
+  app.run(debug=True)
