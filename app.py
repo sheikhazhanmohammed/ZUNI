@@ -5,6 +5,7 @@ from base64 import b64decode
 import uuid
 import io
 from PIL import Image
+# import facespoof
 
 app = Flask(__name__)
 CORS(app)
@@ -44,25 +45,23 @@ def login():
     return jsonify({ 'user': username })
   
 
-@app.route('/test-image', methods=['POST'])
+@app.route('/test-image-register', methods=['POST'])
 def checkImage():
   # just for checking purpose
-  filename = f'{uuid.uuid4().hex}.jpeg'
-  message = request.get_json(force=True)
+  # filename = f'{uuid.uuid4().hex}.jpeg'
+  # message = request.get_json(force=True) # user input here
   # encoded = message
   # decoded = b64decode(encoded)
   # image = Image.open(io.BytesIO(decoded)) 
-  return jsonify({'verified': False, 'filename': filename})
-#   user = message['username']
-#   foundUser = User.query.filter_by(username=user).first()
+  return jsonify({'verified': False})
+  # user = message['username'] #this via input json
+  # foundUser = User.query.filter_by(username=user).first()
 #   # if user is not fount, add to the database directory
 #   print('user: ', foundUser)
 #   print('filename outer: ', filename)
-#   if foundUser == None:
+  # if foundUser == None:
 #     # user came via signup
-#     reg_res = register(image, user)
-    
-#     new_user = User(username=user)
+    # new_user = User(username=user)
 #     try:
 #       print('got user: ', user)
 #       if reg_res == 'User was successfully registered':

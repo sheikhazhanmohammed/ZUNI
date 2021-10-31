@@ -1,13 +1,13 @@
 # dependencies
-zuni/node_modules
-zuni/.pnp
-zuni/.pnp.js
+react-frontend/node_modules
+react-frontend/.pnp
+react-frontend/.pnp.js
 
 # testing
-zuni/coverage
+react-frontend/coverage
 
 # production
-zuni/build
+react-frontend/build
 
 # misc
 .vscode
@@ -17,6 +17,6 @@ zuni/build
 .env.test.local
 .env.production.local
 
-zuni/npm-debug.log*
-zuni/yarn-debug.log*
-zuni/yarn-error.log*
+react-frontend/npm-debug.log*
+react-frontend/yarn-debug.log*
+react-frontend/yarn-error.log*
