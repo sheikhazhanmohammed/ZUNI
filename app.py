@@ -1,10 +1,11 @@
 from flask import Flask, url_for, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
-from base64 import b64decode
+import base64
 import uuid
 import io
 from PIL import Image
+# from werkzeug.datastructures import T
 # import facespoof
 
 app = Flask(__name__)
@@ -47,16 +48,18 @@ def login():
 
 @app.route('/test-image-register', methods=['POST'])
 def checkImage():
-  # just for checking purpose
-  # filename = f'{uuid.uuid4().hex}.jpeg'
-  # message = request.get_json(force=True) # user input here
-  # encoded = message
-  # decoded = b64decode(encoded)
-  # image = Image.open(io.BytesIO(decoded)) 
-  return jsonify({'verified': False})
-  # user = message['username'] #this via input json
+  message = request.get_json(force=True)
+  encoded = message['image']  # image in base64 format
+  user = message['username']
+
+  filename = f'{uuid.uuid4().hex}.jpeg'
+  decoded =  base64.b64decode(encoded)
+  image = Image.open(io.BytesIO(decoded))
+  # pass this image to next functions
+  
+
+  return jsonify({'verified': False })  #false (if not verified), true (if verified)
   # foundUser = User.query.filter_by(username=user).first()
-#   # if user is not fount, add to the database directory
 #   print('user: ', foundUser)
 #   print('filename outer: ', filename)
   # if foundUser == None:

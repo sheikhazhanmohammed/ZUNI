@@ -11,6 +11,7 @@ function Main() {
     const [cameraAuthScreen, setCameraAuthScreen] = useState(false)
     const [result, setResult] = useState(null)
     const [failureMessage, setFailureMessage] = useState("")
+    const [userName, setUserName] = useState("")
 
     function imageData(cameraOn, imageSrc){
         setData({ 'camera': cameraOn, 'image': imageSrc })
@@ -19,6 +20,7 @@ function Main() {
     // Auth level #1 --> check the database for username
     const submit = async ({type, username}) => {
         try{
+            setUserName(username)
             setLoginScreen(false)
             await fetch(`http://127.0.0.1:5000/${type}`, {
                 method: 'POST',
@@ -43,10 +45,10 @@ function Main() {
         if(data.camera){
             try{
                 setCameraAuthScreen(false)
-                await fetch('http://127.0.0.1:5000/test-image', {
+                await fetch('http://127.0.0.1:5000/test-image-register', {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data.image)
+                    body: JSON.stringify({ 'image': data.image, 'username': userName })
                 })
                 .then(res => res.json())
                 .then(response => {
