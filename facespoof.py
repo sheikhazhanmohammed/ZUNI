@@ -33,7 +33,7 @@ class Net(nn.Module):
 mtcnn = MTCNN(image_size=240, margin=20,  post_process=False, keep_all=True, min_face_size=20)
 resnet = InceptionResnetV1(pretrained='vggface2').eval()
 model = Net()
-state_dict = torch.load('./weights/classification_weight.pth', map_location=torch.device('cpu'))
+state_dict = torch.load('./weights/face_classification_model.pt', map_location=torch.device('cpu'))
 model.load_state_dict(state_dict, strict=False)
 model.eval()
 
@@ -91,7 +91,7 @@ def image_handler(image, user_name, flag):
     elif faces.shape[0]>1:
         return "Multiple faces detected"
     face = faces[0]
-    fname = 'temp.png'
+    fname = 'temp.jpg'
     img = face.permute(1, 2, 0).int().numpy().astype('uint8')
     plt.imsave(fname, img)
     face_image = Image.open(fname)
@@ -109,5 +109,5 @@ def image_handler(image, user_name, flag):
     else:
         return "Fake Face Detected"
 
-img = Image.open()
-status = image_handler(img,"","login")
+# img = Image.open()
+# status = image_handler(img,"","login")

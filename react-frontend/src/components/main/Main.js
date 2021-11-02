@@ -45,7 +45,7 @@ function Main() {
         if(data.camera){
             try{
                 setCameraAuthScreen(false)
-                await fetch('http://127.0.0.1:5000/test-image-register', {
+                await fetch('http://127.0.0.1:5000/test-image', {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 'image': data.image, 'username': userName })
