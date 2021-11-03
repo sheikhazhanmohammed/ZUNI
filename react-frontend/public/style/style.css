@@ -444,7 +444,20 @@ main#main {
   grid-gap: 50px;
 }
 
-main#main div {
+@media (max-width: 900px) {
+  main#main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  main#main {
+    margin: 0 10px;
+  }
+}
+
+main#main div.left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -460,17 +473,109 @@ main#main div {
           align-items: center;
 }
 
-main#main div h1 {
+main#main div.left h1 {
   color: white;
   font-family: "Goldman", "sans-serif", cursive;
 }
 
-main#main div h1 span {
+main#main div.left h1 span {
   font-size: 2.5rem;
   color: #e40072;
 }
 
+main#main div.right {
+  margin-left: 100px;
+}
+
+main#main div.right div {
+  height: 180px;
+  width: 360px;
+  position: relative;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: #424242;
+}
+
+main#main div.right div:nth-child(1) {
+  top: 0;
+  left: -100px;
+  height: 200px;
+}
+
+main#main div.right div:nth-child(2) {
+  top: -50px;
+  left: 0;
+  z-index: 2;
+}
+
+main#main div.right div:nth-child(3) {
+  top: -80px;
+  left: -50px;
+}
+
+main#main div.right div img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 900px) {
+  main#main div.right {
+    margin-left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main#main div.right div {
+    height: 300px;
+    width: 600px;
+    position: static;
+    margin-top: 20px;
+  }
+  main#main div.right div:nth-child(1) {
+    height: 333px;
+  }
+}
+
+@media (max-width: 500px) {
+  main#main div.right div {
+    width: 360px;
+    width: 100%;
+    height: 180px;
+  }
+  main#main div.right div:nth-child(1) {
+    height: 200px;
+  }
+}
+
 main#about {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  grid-gap: 20px;
+  margin: 0 1%;
+}
+
+@media (max-width: 1000px) {
+  main#about {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
+}
+
+main#about div.left, main#about div.right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -481,40 +586,97 @@ main#about {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-main#about div.card {
+main#about div.left {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: #424242;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+main#about div.left h1 {
+  color: #dddddd;
+  font-family: "Goldman", "sans-serif", cursive;
+  float: left;
+}
+
+main#about div.left div {
+  width: 100%;
+  font-family: sans-serif;
+  color: #dddddd;
+  line-height: 1.5rem;
+}
+
+main#about div.left div ul {
+  margin-left: 25px;
+}
+
+main#about div.right {
+  width: 100%;
+}
+
+main#about div.right h1 {
+  color: #dddddd;
+  font-family: "Goldman", "sans-serif", cursive;
+}
+
+main#about div.right div.card {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
+  width: 100%;
   max-width: 500px;
   background-color: #424242;
-  margin: 15px;
+  margin: 15px 0;
   padding: 20px;
   border-radius: 5px;
 }
 
-main#about div.card:last-child {
+main#about div.right div.card:last-child {
   margin-bottom: 0;
 }
 
-main#about div.card div.img {
+main#about div.right div.card div.image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main#about div.right div.card div.image img {
   border-radius: 50%;
+  height: 80px;
+  width: 80px;
 }
 
-main#about div.card div.img img {
-  height: 100%;
-  width: 100%;
-}
-
-main#about div.card div.details h2, main#about div.card div.details p {
+main#about div.right div.card div.details h2, main#about div.right div.card div.details a, main#about div.right div.card div.details span {
   color: #dddddd;
   font-family: sans-serif;
+  text-decoration: none;
 }
 
-main#about div.card div.details h2.name {
+main#about div.right div.card div.details a:hover {
+  color: #e40072;
+}
+
+main#about div.right div.card div.details h2.name {
   margin-bottom: 10px;
 }
 
