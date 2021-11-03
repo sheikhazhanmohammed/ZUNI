@@ -23,7 +23,7 @@ function Main() {
         try{
             setUserName(username)
             setLoginScreen(false)
-            await fetch(`http://127.0.0.1:5000/${type}`, {
+            await fetch(`https://zuni-backend.herokuapp.com/${type}`, {
                 method: 'POST',
                 headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: username })
@@ -46,7 +46,7 @@ function Main() {
         if(data.camera){
             try{
                 setCameraAuthScreen(false)
-                await fetch('http://127.0.0.1:5000/test-image', {
+                await fetch('https://zuni-backend.herokuapp.com/test-image', {
                     method: 'POST',
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 'image': data.image, 'username': userName })
