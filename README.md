@@ -7,7 +7,7 @@ In recent times face biometric security systems are rapidly increasing for both 
 - Printed face attack
 - Face being showed on a device's screen 
 - Multiple faces
--  
+
 <div align="center">
   <img src="images\printed-face-attack.png" width="400" height="400"/>
   <p align="center">Printed Face Attack</p>
