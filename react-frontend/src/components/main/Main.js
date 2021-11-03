@@ -14,6 +14,16 @@ function Main() {
     const [successMessage, setSuccessMessage] = useState("")
     const [userName, setUserName] = useState("")
 
+    const handleRetry = () => {
+        setData({ 'camera': false, 'image': null })
+        setLoginScreen(true)
+        setCameraAuthScreen(false)
+        setResult(null)
+        setFailureMessage("")
+        setSuccessMessage("")
+        setUserName("")
+    }
+
     function imageData(cameraOn, imageSrc){
         setData({ 'camera': cameraOn, 'image': imageSrc })
     }
@@ -67,7 +77,7 @@ function Main() {
             { loginScreen && <Auth submit={submit} /> }
             { cameraAuthScreen && <form onSubmit={handleSubmit}><AuthCamera imageData={ imageData }/></form> }
             { (!loginScreen && !cameraAuthScreen && (result === null) ) && <Loader /> }
-            { result !== null && (result === true ? <Success message={successMessage} /> : <Failure message={failureMessage} />) }
+            { result !== null && (result === true ? <Success message={successMessage} /> : <Failure message={failureMessage} retry={handleRetry} />) }
         </>
     )
 }
