@@ -2,6 +2,7 @@
 flask 
 flask-SQLAlchemy
 flask-cors
+gunicorn==20.1.0
 Pillow
 numpy
 torch==1.9.0+cpu
