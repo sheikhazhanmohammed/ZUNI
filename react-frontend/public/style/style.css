@@ -559,11 +559,18 @@ main.result {
   margin: 0 10%;
 }
 
-main.result h1, main.result h2.retry {
+main.result h1, main.result h2 {
   font-family: sans-serif;
   color: #dddddd;
   text-align: center;
-  line-height: 4rem;
+}
+
+main.result h1 {
+  margin-bottom: 20px;
+}
+
+main.result h2 {
+  line-height: 2.5rem;
 }
 
 main.result h2.retry {
@@ -572,6 +579,14 @@ main.result h2.retry {
 }
 
 main.result h2.retry:hover {
+  color: red;
+}
+
+main#success h1 {
+  color: green;
+}
+
+main#failure h1 {
   color: red;
 }
 /*# sourceMappingURL=style.css.map */

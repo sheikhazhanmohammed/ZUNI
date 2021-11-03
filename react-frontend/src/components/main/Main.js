@@ -11,6 +11,7 @@ function Main() {
     const [cameraAuthScreen, setCameraAuthScreen] = useState(false)
     const [result, setResult] = useState(null)
     const [failureMessage, setFailureMessage] = useState("")
+    const [successMessage, setSuccessMessage] = useState("")
     const [userName, setUserName] = useState("")
 
     function imageData(cameraOn, imageSrc){
@@ -52,7 +53,8 @@ function Main() {
                 })
                 .then(res => res.json())
                 .then(response => {
-                    setFailureMessage("Malicious user detected")
+                    setFailureMessage(response.result)
+                    setSuccessMessage(response.result)
                     setResult(response.verified)
                 })
             }
@@ -65,7 +67,7 @@ function Main() {
             { loginScreen && <Auth submit={submit} /> }
             { cameraAuthScreen && <form onSubmit={handleSubmit}><AuthCamera imageData={ imageData }/></form> }
             { (!loginScreen && !cameraAuthScreen && (result === null) ) && <Loader /> }
-            { result !== null && (result === true ? <Success/> : <Failure message={failureMessage}/>) }
+            { result !== null && (result === true ? <Success message={successMessage} /> : <Failure message={failureMessage} />) }
         </>
     )
 }

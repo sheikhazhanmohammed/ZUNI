@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Success() {
+function Success(props) {
   return (
     <main className="result" id="success">
-      <h1>Successfully authenticated, Welcome to the party</h1>
+      <h1>{ props.message }</h1>
+      <h2>Successfully authenticated, Welcome to the party</h2>
     </main>
   )
 }

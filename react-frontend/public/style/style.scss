@@ -363,12 +363,13 @@ main.result{
 	justify-content: center;
 	flex-direction: column;
 	margin: 0 10%;
-	h1, h2.retry{
+	h1, h2{
 		font-family: $font-main;
 		color: $font-color;
 		text-align: center;
-		line-height: 4rem;
 	}
+	h1{ margin-bottom: 20px; }
+	h2{ line-height: 2.5rem; }
 	h2.retry{
 		cursor: pointer;
 		color: blueviolet;
@@ -376,4 +377,10 @@ main.result{
 			color: red;
 		}
 	}
+}
+main#success{
+	h1{ color: green; }
+}
+main#failure{
+	h1{ color: red; }
 }
