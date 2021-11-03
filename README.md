@@ -62,6 +62,6 @@ This will open a browser window in your default web browser. You can view a samp
 We would like to thank the Meta Platforms Inc. for their open source libraries PyTorch and React which helped us to create this project. We would also love to thank Tim Esler and his team for open-sourcing the facenet-pytorch repository which helped us to get a facial matcher and facial extraction neural network.
 
 #### Appendix
-Link to Colab Notebook: https://colab.research.google.com/drive/1MQurhePx6H_nC3w071X9GRDMfpPUPfJ6?usp=sharing
-Link to Trained Model pt file: https://drive.google.com/file/d/13daEooUmdQ5v2kFojwQv7n81hBO6SjyB/view?usp=sharing
-Link to Complete Dataset: https://drive.google.com/drive/folders/1p8iXUQmCifrnoAWexpvOsxxUZe3brz2B?usp=sharing
+- [Link to Colab Notebook](https://colab.research.google.com/drive/1MQurhePx6H_nC3w071X9GRDMfpPUPfJ6?usp=sharing)
+- [Link to Trained Model pt file](https://drive.google.com/file/d/13daEooUmdQ5v2kFojwQv7n81hBO6SjyB/view?usp=sharing)
+- [Link to Complete Dataset](https://drive.google.com/drive/folders/1p8iXUQmCifrnoAWexpvOsxxUZe3brz2B?usp=sharing)
